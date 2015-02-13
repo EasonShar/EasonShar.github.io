@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="share.css" />
 </HEAD>
 <BODY>
+<h1>Peer System</h1>>
 <DIV id=logo><IMG alt=HongCMS src="image/icon .png"></DIV>
 <DIV id=login>
     <FORM id=loginform method=post action="login.php">
