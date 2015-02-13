@@ -10,48 +10,40 @@
 <?php session_start(); ?>
 
 <?php include("../Connections/connect.php"); ?>
-<?php  
+<?php
 
- $fullname= $_SESSION['fullname']; 
- $id= $_SESSION['id']; 
- 
- $username = $_POST[username];
- $password = $_POST[password];
- $email = $_POST[email];
- $hometown = $_POST[hometown];
- $gender = $_POST[gender];
- 
+$fullname = $_SESSION ['fullname'];
+$id = $_SESSION ['id'];
+
+$username = $_POST [username];
+$password = $_POST [password];
+$email = $_POST [email];
+$hometown = $_POST [hometown];
+$gender = $_POST [gender];
 
 $sql = "insert into student_information (fullname,studentId,email,hometown,gender)  values('$fullname','$id','$email','$hometown','$gender')";
 
-$sql2 ="insert into login (fullname,studentId,username,password)  values('$fullname','$id','$username','$password')"; 
+$sql2 = "insert into login (fullname,studentId,username,password)  values('$fullname','$id','$username','$password')";
 
+if (! mysql_query ( $sql, $link )) 
 
-if (!mysql_query($sql,$link))
- 
- {
-   die('Error: ' . mysql_error());
- }
- echo "register successfully";
+{
+	die ( 'Error: ' . mysql_error () );
+}
+echo "register successfully";
 
- if (!mysql_query($sql2,$link))
- 
- {
-   die('Error: ' . mysql_error());
- }
- echo "register successfully";
+if (! mysql_query ( $sql2, $link )) 
 
- mysql_close($link)
- 
+{
+	die ( 'Error: ' . mysql_error () );
+}
+echo "register successfully";
+
+mysql_close ( $link )?>
 
  
- 
- 
-
- 
- ?>
- 
- echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>"; 
+ echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>
+	";
 
 
 </body>
