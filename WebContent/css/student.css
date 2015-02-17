@@ -43,5 +43,11 @@
 	text-align: right;
 }
 
-
-
+.report-container {
+	margin-top: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 20px;
+	overflow: scroll;
+	max-height: 400px;
+}
