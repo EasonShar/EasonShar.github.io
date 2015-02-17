@@ -15,7 +15,67 @@
 <link href="css/student.css" rel="stylesheet" />
 </head>
 <body>
-aaaaaa
+
+	<div class="bs-example bs-example-tabs" role="tabpanel"
+		data-example-id="togglable-tabs">
+		<ul id="myTab" class="nav nav-tabs" role="tablist">
+			
+			<li role="presentation" class="active tab-style"><a href="#home" id="home-tab"
+				role="tab" data-toggle="tab" aria-controls="home"
+				aria-expanded="true">Home</a>
+			</li>
+			<li role="presentation" class="tab-style"><a href="#group"
+				role="tab" id="group-tab" data-toggle="tab"
+				aria-controls="group" aria-expanded="false">Group</a>
+			</li>
+			<li role="presentation" class="tab-style"><a href="#report"
+				role="tab" id="report-tab" data-toggle="tab"
+				aria-controls="report" aria-expanded="false">Report</a>
+			</li>
+			<li role="presentation" class="tab-style"><a href="#assessment"
+				role="tab" id="assessment-tab" data-toggle="tab"
+				aria-controls="assessment" aria-expanded="false">Assessment</a>
+			</li>
+			<li role="presentation" class="tab-style"><a href="#logout"
+				role="tab" id="logout-tab" data-toggle="tab"
+				aria-controls="logout" aria-expanded="false">Log Out</a>
+			</li>
+			
+		</ul><!--end of tab-->
+		
+		<div id="myTabContent" class="tab-content">
+			
+			<div role="tabpanel" class="tab-pane fade in active" id="home"
+				aria-labelledby="home-tab">
+				<p>home</p>
+			</div><!--end of home page-->
+			
+			
+			<div role="tabpanel" class="tab-pane fade" id="group"
+				aria-labelledby="group-tab">
+				<p>group</p>
+			</div><!--end of group page-->
+			
+			
+			<div role="tabpanel" class="tab-pane fade" id="report"
+				aria-labelledby="report-tab">
+				<p>report</p>
+			</div><!--end of repot page-->
+			
+			
+			<div role="tabpanel" class="tab-pane fade" id="assessment"
+				aria-labelledby="assessment-tab">
+				<p>assessment</p>
+			</div><!--end of assessment page-->
+			
+			
+			<div role="tabpanel" class="tab-pane fade" id="logout"
+				aria-labelledby="logout-tab">
+				<p>logout</p>
+			</div><!--end of log out page-->
+			
+		</div><!--end of tab content-->
+	</div>
 
 
 </body>
