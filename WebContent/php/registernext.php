@@ -26,7 +26,8 @@
 <DIV class=control-group><SPAN class=icon-lock></SPAN><INPUT type=password name=password placeholder="Password"> </DIV>
 <DIV class=control-group><SPAN class=icon-mail></SPAN><INPUT type=text name=email placeholder="Email"> </DIV>
 <DIV class=control-group><SPAN class=icon-mail></SPAN><INPUT type=text name=hometown placeholder="hometown"> </DIV>
-<DIV class=control-group><SPAN class=icon-mail></SPAN><INPUT type=text name=gender placeholder="gender"> </DIV>
+<DIV class=control-group><SPAN class=icon-mail></SPAN><INPUT type=radio name=gender value="female">female </DIV>
+<DIV class=control-group><SPAN class=icon-mail></SPAN><INPUT type=radio name=gender value="male">male</DIV>
 
 
 
