@@ -9,7 +9,7 @@
 
 <?php session_start(); ?>
 
-<?php include("../Connections/connect.php"); ?>
+<?php include("Connections/connect.php"); ?>
 <?php
 
 $fullname = $_SESSION ['fullname'];
