@@ -1,6 +1,6 @@
 <?php session_start(); ?>
    
-   <?php include("../Connections/connect.php"); ?>
+   <?php include("Connections/connect.php"); ?>
 <?php  
 
  
@@ -17,7 +17,7 @@ if($result = mysql_fetch_array($check_query)){
     //log in successfully
 	 
 	$_SESSION['username']=$username;
-    echo "<script>location.href='readcontent.php';</script>";  
+    echo "<script>location.href='Welcome.php';</script>";  
 	
       }
   
@@ -25,9 +25,6 @@ if($result = mysql_fetch_array($check_query)){
  else {
     exit('login failed ! please check your username and password, if you are new here, register first !<a href="javascript:history.back(-1);"> back</a> ');
 }
-
-
-
 
 ?>
 

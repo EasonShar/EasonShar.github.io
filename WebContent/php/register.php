@@ -9,7 +9,7 @@
 
 <?php session_start(); ?>
 
-<?php include("../Connections/connect.php"); ?>
+<?php include("Connections/connect.php"); ?>
 <?php  
 
  $fullname= $_SESSION['fullname']; 
@@ -41,18 +41,10 @@ if (!mysql_query($sql,$link))
  }
  echo "register successfully";
 
- mysql_close($link)
+ mysql_close($link);
  
 
- 
- 
- 
-
+ echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>"; 
  
  ?>
- 
- echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>"; 
-
-
-</body>
-</html>
+  
