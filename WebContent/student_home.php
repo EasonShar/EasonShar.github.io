@@ -141,7 +141,7 @@
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
 								
-						    <input type="submit" value="save"></input>
+						    <input type="submit" class="btn btn-primary" value="save"></input>
 								
 						</div>
 					</form>
