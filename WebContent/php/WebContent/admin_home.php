@@ -25,11 +25,11 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
+			<li class="tab-admin-style active"><a>Home</a></li>
 			<li class="tab-admin-style"><a
-				href="admin_allocate_student.php">Group</a></li>
+				href="admin_allocate_student.html">Group</a></li>
 			<li class="tab-admin-style"><a href="admin_allocate_group.html">Assessment</a></li>
-			<li class="tab-admin-style active"><a>Rank</a></li>
+			<li class="tab-admin-style"><a href="rank.html">Rank</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
@@ -37,7 +37,7 @@
 	<div class="content">
 		<div class="panel panel-default report-container">
 			<div class="panel-heading">
-				<h3 class="panel-title">Rank</h3>
+				<h3 class="panel-title">Students List</h3>
 			</div>
 			<div class="panel-body">
 				<div class="bs-example" data-example-id="striped-table">
@@ -146,6 +146,10 @@
 				</div>
 			</div>
 		</div>
+
+
+
+
 	</div>
 </body>
 </html>

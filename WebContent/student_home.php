@@ -35,7 +35,7 @@ while($row=mysql_fetch_array($result))
 		 
 		 $hometown = $row['hometown'];
          $gender = $row['gender'];
-		 if ($gender=0){
+		 if ($gender=="0"){
 			 
 			 $gendername="female" ;
 			 

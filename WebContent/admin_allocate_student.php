@@ -1,3 +1,4 @@
+<?php include("php/Connections/connect.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +11,10 @@
 <link href="libs/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet" />
 <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap/bootstrap.min.js"></script>
-
+<script src="cookie.js"></script>
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
 <script src="js/allocate.js"></script>
-
 </head>
 <body>
 
@@ -28,9 +28,8 @@
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
-			<li class="tab-admin-style"><a
-				href="admin_allocate_student.php">Group</a></li>
-			<li class="tab-admin-style active"><a>Assessment</a></li>
+			<li class="tab-admin-style active"><a>Group</a></li>
+			<li class="tab-admin-style"><a href="admin_allocate_group.html">Assessment</a></li>
 			<li class="tab-admin-style"><a href="rank.html">Rank</a></li>
 		</ul>
 	</div>
@@ -44,22 +43,29 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Students List</h3>
 			</div>
+            
+            <?php 
+			 $student=array("Milli Zhu","Nenyao Wang","Qiuyu Wang","Maomao Zheng","Eason Shar"
+			 ,"Jay","Tom","Cindy","Emma","Jason","angelababy","Cheer");
+			 
+			 
+			 ?>
 			<div class="panel-body">
 				<div role="tabpanel">
 					<ul id="sortable1"
 						class="connectedSortable panel panel-default allocate-list-container">
-						<li class="panel panel-default">A</li>
-						<li class="panel panel-default">A</li>
-						<li class="panel panel-default">A</li>
-						<li class="panel panel-default">B</li>
-						<li class="panel panel-default">B</li>
-						<li class="panel panel-default">B</li>
-						<li class="panel panel-default">C</li>
-						<li class="panel panel-default">C</li>
-						<li class="panel panel-default">C</li>
-						<li class="panel panel-default">D</li>
-						<li class="panel panel-default">D</li>
-						<li class="panel panel-default">D</li>
+						<li class="panel panel-default"><?php echo $student[0]?></li>
+						<li class="panel panel-default"><?php echo $student[1]?></li>
+						<li class="panel panel-default"><?php echo $student[2]?></li>
+						<li class="panel panel-default"><?php echo $student[3]?></li>
+						<li class="panel panel-default"><?php echo $student[4]?></li>
+						<li class="panel panel-default"><?php echo $student[5]?></li>
+						<li class="panel panel-default"><?php echo $student[6]?></li>
+						<li class="panel panel-default"><?php echo $student[7]?></li>
+						<li class="panel panel-default"><?php echo $student[8]?></li>
+						<li class="panel panel-default"><?php echo $student[9]?></li>
+						<li class="panel panel-default"><?php echo $student[10]?></li>
+						<li class="panel panel-default"><?php echo $student[11]?></li>
 					</ul>
 				</div>
 			</div>
@@ -74,29 +80,30 @@
 			<div class="panel-body">
 				<div role="tabpanel">
 
+
 					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="allocate-tab active"><a href="#A"
+					<ul id="tabs"class="nav nav-tabs" role="tablist">
+						<li class="allocate-tab active"><a href="#A"  onclick="show(0)"
 							aria-controls="A" data-toggle="tab">A</a></li>
-						<li class="allocate-tab"><a href="#B" aria-controls="B"
+						<li class="allocate-tab"><a href="#B" aria-controls="B" onclick="show(1)"
 							role="tab" data-toggle="tab">B</a></li>
-						<li class="allocate-tab"><a href="#C" aria-controls="C"
+						<li class="allocate-tab"><a href="#C" aria-controls="C" onclick="show(2)"
 							role="tab" data-toggle="tab">C</a></li>
-						<li class="allocate-tab"><a href="#D" aria-controls="D"
+						<li class="allocate-tab"><a href="#D" aria-controls="D" onclick="show(3)"
 							role="tab" data-toggle="tab">D</a></li>
-						<li class="allocate-tab"><a href="#E" aria-controls="E"
+						<li class="allocate-tab"><a href="#E" aria-controls="E" onclick="show(4)"
 							role="tab" data-toggle="tab">E</a></li>
-						<li class="allocate-tab"><a href="#F" aria-controls="F"
+						<li class="allocate-tab"><a href="#F" aria-controls="F" onclick="show(5)"
 							role="tab" data-toggle="tab">F</a></li>
-						<li class="allocate-tab"><a href="#G" aria-controls="G"
+						<li class="allocate-tab"><a href="#G" aria-controls="G" onclick="show(6)"
 							role="tab" data-toggle="tab">G</a></li>
-						<li class="allocate-tab"><a href="#H" aria-controls="H"
+						<li class="allocate-tab"><a href="#H" aria-controls="H" onclick="show(7)"
 							role="tab" data-toggle="tab">H</a></li>
-						<li class="allocate-tab"><a href="#I" aria-controls="I"
+						<li class="allocate-tab"><a href="#I" aria-controls="I" onclick="show(8)"
 							role="tab" data-toggle="tab">I</a></li>
-						<li class="allocate-tab"><a href="#J" aria-controls="J"
+						<li class="allocate-tab"><a href="#J" aria-controls="J" onclick="show(9)"
 							role="tab" data-toggle="tab">J</a></li>
-						<li class="allocate-tab"><a href="#K" aria-controls="K"
+						<li class="allocate-tab"><a href="#K" aria-controls="K" onclick="show(10)"
 							role="tab" data-toggle="tab">K</a></li>
 						<li class="allocate-tab"><a href="#L" aria-controls="L"
 							role="tab" data-toggle="tab">L</a></li>
@@ -118,12 +125,18 @@
 							role="tab" data-toggle="tab">T</a></li>
 					</ul>
 
+
+<?php  
+$result=mysql_query("select*from translation_input",$link);
+
+
+?>
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="A">
-							<ul id="sortable2"
+							<ul id="sortable2" 
 								class="connectedSortable panel panel-default allocate-list-container">
-
+                           <li class="panel panel-default"><?php echo $student[1]?></li>
 							</ul>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="B">
@@ -237,7 +250,6 @@
 						<div role="tabpanel" class="tab-pane" id="T">
 							<ul id="sortable21"
 								class="connectedSortable panel panel-default allocate-list-container">
-
 							</ul>
 						</div>
 					</div>
@@ -245,12 +257,90 @@
 
 				</div>
 			</div>
+            
+            
+            
+  <script type="text/javascript">
+  
+
+
+function show(id){
+    var tab = document.getElementById("tabs").getElementsByTagName("a");
+    var groupnumber;
+	groupnumber=tab[id].innerHTML;
+	//alert (groupnumber);
+	setCookie("test",groupnumber,1800);         
+     
+   
+}
+ 
+		
+		$(function(){
+		  $("p").click(function(){
+			  
+			var ulNode;
+			var i;
+			
+			i = getCookie('test'); 
+			
+			if(i=="A") {  ulNode= document.getElementById("sortable2"); }
+			if(i=="B") {  ulNode= document.getElementById("sortable3"); }
+			if(i=="C") {  ulNode= document.getElementById("sortable4"); }
+			if(i=="D") {  ulNode= document.getElementById("sortable5"); }
+			
+			
+			//var ulNode = document.getElementById("sortable2");
+			var childrens = ulNode.childNodes;
+			
+			var len = childrens.length;
+			var groupmembers = "";
+			
+			for(var i=1;i<len;i++){
+				
+				//alert(childrens[i].nodeName);
+				//alert(childrens[i].innerHTML);
+				var a = getCookie('test'); 
+				groupmembers=groupmembers+childrens[i].innerHTML+"\n";
+			    
+				
+			}
+		   
+			alert("group: "+a+ "\n"+groupmembers);  
+			
+			//document.cookie="groupmember"+groupmembers
+		    //location.href='post.php';
+
+  
+var strs= new Array(); //定义一数组 
+strs=groupmembers.split("\n"); //字符分割 
+	
+		
+
+setCookie("jsCookie",strs,1800);
+
+		location.href='post.php';
+		  });
+		})
+		
+		
+	
+  </script>
+  
+ 
+  
+  
+  
+  
+  
+  
 			<div style="text-align: center; margin-bottom: 30px;">
-				<button type="button" class="btn btn-primary" style="width: 100px;">Save</button>
+				<p><button type="button"  id="btnsave" style="width: 100px;">Save</button></p>
 			</div>
 		</div>
 		<!-- End of right panel -->
 
 	</div>
+    
+  
 </body>
 </html>
