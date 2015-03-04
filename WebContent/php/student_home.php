@@ -1,11 +1,3 @@
-<?php session_start(); 
-      include("php/Connections/connect.php"); 
-
-      $username = $_SESSION['username'];
-      $rs=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$username'",$link);
-      $array=mysql_fetch_array($rs);
-      $row=mysql_num_rows($rs);?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +15,13 @@
 <link href="css/student.css" rel="stylesheet" />
 </head>
 <body>
+<?php session_start(); 
+      include("php/Connections/connect.php"); 
+
+      $username = $_SESSION['username'];
+      $rs=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$username'",$link);
+      $array=mysql_fetch_array($rs);
+      $row=mysql_num_rows($rs);?>
 
 	<div class="page-header">
 		<h1>
@@ -71,18 +70,11 @@
 
 
 		<!--start of edit window-->
-		<?php session_start(); 
-      include("php/Connections/connect.php"); 
-
-      $username = $_SESSION['username'];
-      $rs1=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$username'",$link);
-      $array1=mysql_fetch_array($rs1);
-      $row1=mysql_num_rows($rs1);?>
 		<div class="modal fade" id="add-event" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id= editform method=post action="edit.php" >
+					<form>
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
@@ -96,7 +88,7 @@
 									<p>Fullname</p>
 								</div>
 								<div class="col-xs-6">
-									<input class="form-control"  name=fullname placeholder="<?=$array1['fullname'];?>"></input>
+									<input class="form-control" id="name-field" placeholder="<?=$array['fullname'];?>"></input>
 								</div>
 							</div>
 
@@ -105,7 +97,7 @@
 									<p>Password</p>
 								</div>
 								<div class="col-xs-6">
-									<input class="form-control"  name=password type=password placeholder="*****"></input>
+									<input class="form-control" id="duration-field"></input>
 								</div>
 							</div>
 							
@@ -114,7 +106,7 @@
 									<p>Retype Password</p>
 								</div>
 								<div class="col-xs-6">
-									<input class="form-control"  type=password placeholder="*****"></input>
+									<input class="form-control" id="duration-field"></input>
 								</div>
 							</div>
 							
@@ -123,7 +115,7 @@
 									<p>Email</p>
 								</div>
 								<div class="col-xs-6">
-									<input class="form-control"  name=email placeholder="<?=$array1['email'];?>"></input>
+									<input class="form-control" id="duration-field"></input>
 								</div>
 							</div>
 							
@@ -132,17 +124,17 @@
 									<p>Hometown</p>
 								</div>
 								<div class="col-xs-6">
-									<input class="form-control"  name=hometown placeholder="<?=$array1['hometown'];?>"></input>
+									<input class="form-control" id="duration-field"></input>
 								</div>
 							</div>
+							
+
 						</div>
-						<input type="hidden" name="studentId" value="<?=$array1['studentId'];?>"/>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
-								
-						    <input type="submit" class="btn btn-primary" value="save"></input>
-								
+							<button type="button" class="btn btn-primary"
+								data-dismiss="modal" id="save">Save</button>
 						</div>
 					</form>
 				</div>

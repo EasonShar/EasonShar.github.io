@@ -25,31 +25,30 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-style"><a href="../student_home.html">Home</a></li>
-			<li class="tab-style"><a href="../student_group.html">Group</a></li>
-			<li class="tab-style"><a href="../student_report.html">Report</a></li>
-			<li class="tab-style active"><a
-				href="../student_assessment.html">Assessment</a></li>
-			<li class="tab-style"><a href="../student_logout.html">Log
-					Out</a></li>
+			<li class="tab-style"><a href="../student_home.php">Home</a></li>
+			<li class="tab-style"><a href="../student_group.php">Group</a></li>
+			<li class="tab-style active"><a href="../student_report.php">Report</a></li>
+			<li class="tab-style"><a href="../student_assessment.php">Assessment</a></li>
+			<li class="tab-style"><a href="../student_logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-assessment-style"><a href="assessment1.html">Group
-					A Report</a></li>
-			<li class="tab-assessment-style active"><a>Group B Report</a></li>
-			<li class="tab-assessment-style"><a href="assessment3.html">Group
-					C Report</a></li>
+			<li class="tab-report-style active"><a>View Report</a></li>
+			<li class="tab-report-style"><a href="report_Mark_1.html">Assessment
+					form Group A</a></li>
+			<li class="tab-report-style"><a href="report_Mark_2.html">Assessment
+					form Group B</a></li>
+			<li class="tab-report-style"><a href="report_Mark_3.html">Assessment
+					form Group C</a></li>
 		</ul>
-	</div>
-	<!--end of secondary tab-->
+	</div><!--end of secondary tab-->
 
 	<div class="content">
 		<div class="panel panel-default report-container">
 			<div class="panel-heading">
-				<h3 class="panel-title">Milli Zhu</h3>
+				<h3 class="panel-title">Vinatage Abydos</h3>
 			</div>
 			<div class="panel-body">
 				<p>The woman in this photograph has been identified as both
@@ -132,34 +131,9 @@
 					Palestine.</p>
 
 			</div>
-		</div>
-		<!--end of report container-->
-		<div class="row">
-			<div class="col-md-1 col-md-offset-2">
-				<h4>Mark</h4>
-			</div>
-			<div class="col-md-2">
-				<input class="form-control" placeholder="out of 100">
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-1 col-md-offset-2">
-				<h4>Comments</h4>
-			</div>
-			<div class="col-md-7">
-				<textarea class="form-control assessment-comments" rows="6"
-					style="max-width: 734px;"></textarea>
-			</div>
-		</div>
-
-		<div style="text-align: center; margin-bottom: 30px;">
-			<button type="button" class="btn btn-default" style="width: 300px;">Submit</button>
-		</div>
-
+		</div><!--end of report container-->
+		
+		
 	</div>
-
-
-
 </body>
 </html>
