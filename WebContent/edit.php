@@ -13,12 +13,25 @@
 	$email = $_POST [email];
 	$hometown = $_POST [hometown];
 	$studentId=$_POST [studentId];
-	$link=mysql_connect('localhost:8888','root','root');
-	if (!$link)
-	{
-		die('Could not connect: ' . mysql_error());
+	
+	$username = $_SESSION['username'];
+	$rs1=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$username'",$link);
+	$array1=mysql_fetch_array($rs1);
+	$row1=mysql_num_rows($rs1);
+	
+	if($fullname==""){
+		$fullname=$array1['fullname'];
 	}
-	mysql_select_db('database',$link);
+	if($password==""){
+		$password=$array1['password'];
+	}
+	if($email==""){
+		$email=$array1['email'];
+	}
+	if($hometown==""){
+		$hometown=$array1['hometown'];
+	}
+	
 	$sql = "update student_information set fullname='$fullname',email='$email',hometown='$hometown' where studentId='$studentId'";
 	$sql2 = "update login set fullname='$fullname',password='$password' where studentId='$studentId'";
 	mysql_query($sql,$link);
