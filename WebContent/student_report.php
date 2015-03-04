@@ -1,3 +1,11 @@
+<?php session_start(); 
+      include("php/Connections/connect.php"); 
+
+      $username = $_SESSION['username'];
+      $rs=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$username'",$link);
+      $array=mysql_fetch_array($rs);
+      $row=mysql_num_rows($rs);?>
+      
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +26,7 @@
 
 	<div class="page-header">
 		<h1>
-			Peer System <small>Shar, Welcome!</small>
+			Peer System <small><?php echo $array['fullname'];?>, Welcome!</small>
 		</h1>
 	</div>
 	<!--end of header-->
@@ -35,25 +43,27 @@
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-report-style"><a href="html_report/report_view.html">View
+			<li class="tab-report-style"><a href="html_report/report_view.php">View
 					Report</a></li>
-			<li class="tab-report-style"><a href="html_report/report_Mark_1.html">Assessment
+			<li class="tab-report-style"><a href="html_report/report_Mark_1.php">Assessment
 					form Group A</a></li>
-			<li class="tab-report-style"><a href="html_report/report_Mark_2.html">Assessment
+			<li class="tab-report-style"><a href="html_report/report_Mark_2.php">Assessment
 					form Group B</a></li>
-			<li class="tab-report-style"><a href="html_report/report_Mark_3.html">Assessment
+			<li class="tab-report-style"><a href="html_report/report_Mark_3.php">Assessment
 					form Group C</a></li>
 		</ul>
 	</div>
 
 	<div class="content">
+	<form method="post" action="upload_file.php" enctype="multipart/form-data">
 		<div class="col-md-6 col-md-offset-3">
 			<h2>Please upload your group report.</h2>
-			<input type="file" id="exampleInputFile" style="margin: 30px;">
+			<input type="hidden" name="Max_FILE_SIZE" value="1000000">
+			<input type="file" name="file" id="exampleInputFile" style="margin: 30px;">
 			<p style="margin-bottom: 30px;">more information</p>
-			<button type="submit" class="btn btn-default" style="margin-left: 30px;">Submit</button>
+			<input type="submit" name="submit" value="Submit" class="btn btn-default" style="margin-left: 30px;"></input>
 		</div>
-		
+	</form>	
 	</div>
 </body>
 </html>

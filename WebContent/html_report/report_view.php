@@ -25,12 +25,11 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-style"><a href="../student_home.html">Home</a></li>
-			<li class="tab-style"><a href="../student_group.html">Group</a></li>
-			<li class="tab-style active"><a href="../student_report.html">Report</a></li>
-			<li class="tab-style"><a href="../student_assessment.html">Assessment</a></li>
-			<li class="tab-style"><a href="../student_logout.html">Log
-					Out</a></li>
+			<li class="tab-style"><a href="../student_home.php">Home</a></li>
+			<li class="tab-style"><a href="../student_group.php">Group</a></li>
+			<li class="tab-style active"><a href="../student_report.php">Report</a></li>
+			<li class="tab-style"><a href="../student_assessment.php">Assessment</a></li>
+			<li class="tab-style"><a href="../student_logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
