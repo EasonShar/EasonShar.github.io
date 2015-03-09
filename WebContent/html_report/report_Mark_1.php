@@ -36,13 +36,13 @@
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-report-style"><a href="report_view.html">View
+			<li class="tab-report-style"><a href="report_view.php">View
 					Report</a></li>
 			<li class="tab-report-style active"><a>Assessment form Group
 					A</a></li>
-			<li class="tab-report-style"><a href="report_Mark_2.html">Assessment
+			<li class="tab-report-style"><a href="report_Mark_2.php">Assessment
 					form Group B</a></li>
-			<li class="tab-report-style"><a href="report_Mark_3.html">Assessment
+			<li class="tab-report-style"><a href="report_Mark_3.php">Assessment
 					form Group C</a></li>
 		</ul>
 	</div>

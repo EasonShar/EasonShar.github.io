@@ -29,8 +29,8 @@
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
 			<li class="tab-admin-style active"><a>Group</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_group.html">Assessment</a></li>
-			<li class="tab-admin-style"><a href="rank.html">Rank</a></li>
+			<li class="tab-admin-style"><a href="admin_allocate_group.php">Assessment</a></li>
+			<li class="tab-admin-style"><a href="rank.php">Rank</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
@@ -270,8 +270,6 @@ function show(id){
 	groupnumber=tab[id].innerHTML;
 	//alert (groupnumber);
 	setCookie("test",groupnumber,1800);         
-     
-   
 }
  
 		

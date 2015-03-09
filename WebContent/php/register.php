@@ -10,8 +10,7 @@
 <?php session_start(); ?>
 
 <?php include("Connections/connect.php"); ?>
-<?php  
-
+<?php
 
 $fullname = $_SESSION ['fullname'];
 $id = $_SESSION ['id'];
@@ -22,9 +21,9 @@ $email = $_POST [email];
 $hometown = $_POST [hometown];
 $gender = $_POST [gender];
 
-$sql = "insert into student_information (fullname,studentId,email,hometown,gender)  values('$fullname','$id','$email','$hometown','$gender')";
+$sql = "insert into student (fullname,studentId,username,email,hometown,gender)  values('$fullname','$id','$username','$email','$hometown','$gender')";
 
-$sql2 = "insert into login (fullname,studentId,username,password)  values('$fullname','$id','$username','$password')";
+$sql2 = "insert into login (username,password)  values('$username','$password')";
 
 if (! mysql_query ( $sql, $link )) 
 
@@ -39,11 +38,9 @@ if (! mysql_query ( $sql2, $link )) {
 }
 echo "register successfully";
 
+mysql_close ( $link );
 
- mysql_close($link);
- 
- 
- echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>";
+echo "<script> alert('register successfully');location.href='loginpage.php';exit;</script>";
 ?>
 
 </body>

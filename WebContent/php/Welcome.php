@@ -13,7 +13,7 @@
 <?php 
 $a = $_SESSION['username'];
 //$rs=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId AND login.username='$a'",$link);
-$rs=mysql_query("SELECT * FROM student_information,login WHERE login.studentId = student_information.studentId",$link);
+$rs=mysql_query("SELECT * FROM student,login WHERE login.username = student.username",$link);
 $array=mysql_fetch_array($rs);
 $row=mysql_num_rows($rs);?>
 <table >

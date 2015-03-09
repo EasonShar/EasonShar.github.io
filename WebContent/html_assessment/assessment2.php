@@ -25,22 +25,22 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-style"><a href="../student_home.html">Home</a></li>
-			<li class="tab-style"><a href="../student_group.html">Group</a></li>
-			<li class="tab-style"><a href="../student_report.html">Report</a></li>
+			<li class="tab-style"><a href="../student_home.php">Home</a></li>
+			<li class="tab-style"><a href="../student_group.php">Group</a></li>
+			<li class="tab-style"><a href="../student_report.php">Report</a></li>
 			<li class="tab-style active"><a
-				href="../student_assessment.html">Assessment</a></li>
-			<li class="tab-style"><a href="../student_logout.html">Log
+				href="../student_assessment.php">Assessment</a></li>
+			<li class="tab-style"><a href="../student_logout.php">Log
 					Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-assessment-style active"><a>Group A Report</a></li>
-			<li class="tab-assessment-style"><a href="assessment2.html">Group
-					B Report</a></li>
-			<li class="tab-assessment-style"><a href="assessment3.html">Group
+			<li class="tab-assessment-style"><a href="assessment1.php">Group
+					A Report</a></li>
+			<li class="tab-assessment-style active"><a>Group B Report</a></li>
+			<li class="tab-assessment-style"><a href="assessment3.php">Group
 					C Report</a></li>
 		</ul>
 	</div>
@@ -49,7 +49,7 @@
 	<div class="content">
 		<div class="panel panel-default report-container">
 			<div class="panel-heading">
-				<h3 class="panel-title">Eason Shar</h3>
+				<h3 class="panel-title">Milli Zhu</h3>
 			</div>
 			<div class="panel-body">
 				<p>The woman in this photograph has been identified as both
@@ -148,17 +148,18 @@
 				<h4>Comments</h4>
 			</div>
 			<div class="col-md-7">
-			<textarea class="form-control assessment-comments" rows="6" style="max-width: 734px;"></textarea>
+				<textarea class="form-control assessment-comments" rows="6"
+					style="max-width: 734px;"></textarea>
 			</div>
 		</div>
 
 		<div style="text-align: center; margin-bottom: 30px;">
 			<button type="button" class="btn btn-default" style="width: 300px;">Submit</button>
 		</div>
-		
+
 	</div>
 
 
-	
+
 </body>
 </html>

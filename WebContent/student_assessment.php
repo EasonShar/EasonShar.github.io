@@ -35,9 +35,9 @@
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-assessment-style"><a href="html_assessment/assessment1.html">Group A Report</a></li>
-			<li class="tab-assessment-style"><a href="html_assessment/assessment2.html">Group B Report</a></li>
-			<li class="tab-assessment-style"><a href="html_assessment/assessment3.html">Group C Report</a></li>
+			<li class="tab-assessment-style"><a href="html_assessment/assessment1.php">Group A Report</a></li>
+			<li class="tab-assessment-style"><a href="html_assessment/assessment2.php">Group B Report</a></li>
+			<li class="tab-assessment-style"><a href="html_assessment/assessment3.php">Group C Report</a></li>
 		</ul>
 	</div>
 	<div class="content"></div>

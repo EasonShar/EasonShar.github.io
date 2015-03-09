@@ -28,8 +28,8 @@
 			<li class="tab-admin-style active"><a>Home</a></li>
 			<li class="tab-admin-style"><a
 				href="admin_allocate_student.php">Group</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_group.html">Assessment</a></li>
-			<li class="tab-admin-style"><a href="rank.html">Rank</a></li>
+			<li class="tab-admin-style"><a href="admin_allocate_group.php">Assessment</a></li>
+			<li class="tab-admin-style"><a href="rank.php">Rank</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->

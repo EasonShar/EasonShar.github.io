@@ -25,10 +25,10 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style"><a href="admin_home.html">Home</a></li>
+			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
 			<li class="tab-admin-style"><a
-				href="admin_allocate_student.html">Group</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_group.html">Assessment</a></li>
+				href="admin_allocate_student.php">Group</a></li>
+			<li class="tab-admin-style"><a href="admin_allocate_group.php">Assessment</a></li>
 			<li class="tab-admin-style active"><a>Rank</a></li>
 		</ul>
 	</div>

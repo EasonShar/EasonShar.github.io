@@ -17,7 +17,6 @@
 
 </head>
 <body>
-
 	<div class="page-header">
 		<h1>
 			Peer System <small>Admin, Welcome!</small>
@@ -27,11 +26,11 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style"><a href="admin_home.html">Home</a></li>
+			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
 			<li class="tab-admin-style"><a
-				href="admin_allocate_student.html">Group</a></li>
+				href="admin_allocate_student.php">Group</a></li>
 			<li class="tab-admin-style active"><a>Assessment</a></li>
-			<li class="tab-admin-style"><a href="rank.html">Rank</a></li>
+			<li class="tab-admin-style"><a href="rank.php">Rank</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
