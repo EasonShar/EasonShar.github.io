@@ -1,43 +1,19 @@
-<?php include("php/Connections/connect.php"); ?>
-
-
- 
+<?php include("php/Connections/connect.php");?>
 <?php
 
-// $keyword = (isset($_GET['keyword'])) ? $_GET['keyword'];
+$student = JSON_decode($_COOKIE ["student"]);
+$groupID = JSON_decode($_COOKIE ["groupID"]);
 
-// echo $_COOKIE["jsCookie"];
+// echo $student[0];
+// echo $groupID[0];
 
-$names = $_COOKIE ["jsCookie"];
-
-// echo $names;
-
-$groupnumber = $_COOKIE ["test"];
-
-$row = split ( ',', $names );
-
-$fullname1 = $row [0];
-$fullname2 = $row [1];
-$fullname3 = $row [2];
-
-echo $groupnumber;
-echo $fullname1;
-echo $fullname2;
-echo $fullname3;
-
-$sql = "update student_group set group_number='$groupnumber' where fullname='$fullname1'";
-$sql2 = "update student_group set group_number='$groupnumber' where fullname='$fullname2'";
-$sql3 = "update student_group set group_number='$groupnumber' where fullname='$fullname3'";
-
-if (! mysql_query ( $sql, $link ) || ! mysql_query ( $sql2, $link ) || ! mysql_query ( $sql3, $link )) 
-
-{
-	die ( 'Error: ' . mysql_error () );
+for($i = 0; $i < count ( $student ); $i ++){
+	$sql = "UPDATE student SET `groupID`= $groupID[$i] WHERE `fullname` = '$student[$i]'";
+	
+	if (! mysql_query ( $sql, $link )) {
+		die ( 'Error: ' . mysql_error () );
+	}
 }
-echo "update successfully";
-
-echo "<script>location.href='admin_allocate_student.php'</script>";
+echo "<script> alert('Save successfully!');location.href='admin_allocate_student.php';exit;</script>"
 
 ?>
-
-

@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <title>Untitled Document
  </title>
- <link rel="stylesheet" type="text/css" href="Register.css" />
+ <link rel="stylesheet" type="text/css" href="../css/register.css" />
 </head>
-<script type="text/javascript" src="jquery-1.11.2.js"></script>
-<script type="text/javascript" src="check.js"></script> 
+<script type="text/javascript" src="../libs/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/check.js"></script> 
 
 <body>
 <?php 

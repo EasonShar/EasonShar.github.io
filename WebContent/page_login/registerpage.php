@@ -2,13 +2,13 @@
 <HTML>
 <HEAD>
 <TITLE>register</TITLE>
-<link rel="stylesheet" type="text/css" href="share.css" />
+<link rel="stylesheet" type="text/css" href="../css/login.css" />
 
 
 </HEAD>
 <BODY>
 	<DIV id=logo>
-		<IMG alt=HongCMS src="image/icon .png">
+		<IMG alt=HongCMS src="../image/logo_ucl.jpg">
 	</DIV>
 	<DIV id=login>
 		<FORM id=loginform method=post action="registernext.php">
@@ -28,7 +28,7 @@
 		</FORM>
 
 
-		<FORM action="loginpage.php">
+		<FORM action="../index.php">
 			<DIV class=login-btn>
 				<INPUT id=login-btn value="back" type=submit name=submit>
 			</DIV>

@@ -73,6 +73,20 @@
 	margin-bottom: 20px;
 }
 
+.search-container {
+	margin-top: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 20px;
+}
+
+.result-container {
+	margin-top: 60px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 20px;
+}
+
 .allocate-list-container {
 	text-align: center;
 	width: 100%;
@@ -87,4 +101,28 @@
 	padding: 5px;
 	font-size: 1.2em;
 	width: 97%;
+}
+
+.forum-discuss {
+	min-height: 300px;
+	max-height: 450px;
+	overflow: scroll;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.popover.right {
+	display: block;
+	position: inherit;
+	top: 10px;
+	max-width: 40%;
+	margin-left: 2%;
+}
+
+.popover.left {
+	display: block;
+	position: inherit;
+	margin-left: 58%;
+	max-width: 40%;
+	top: 10px;
 }

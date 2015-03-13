@@ -36,77 +36,121 @@
 
 	<div class="content">
 		<h2 style="margin-left: 30px;">You are allocated to Group A.</h2>
-				<div class="bs-example" data-example-id="collapse-accordion"
-					style="text-align: center;">
-					<div class="panel-group" id="accordion" role="tablist"
-						aria-multiselectable="true">
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingOne"
-								data-toggle="collapse" data-parent="#accordion"
-								href="#collapseOne" aria-expanded="false"
-								aria-controls="collapseOne" class="collapsed">
-								<h3 class="panel-title">Group Member</h3>
-							</div>
-							<div id="collapseOne" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingOne"
-								aria-expanded="false" style="height: 0px;">
-								<div class="panel-body">
-									<h4>Milli Zhu</h4>
-									<h4>Nenyao Wang</h4>
-									<h4>Eason Shar</h4>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingTwo"
-								data-toggle="collapse" data-parent="#accordion"
-								href="#collapseTwo" aria-expanded="false"
-								aria-controls="collapseTwo" class="collapsed">
-								<h3 class="panel-title">Give Assessment to Group</h3>
-							</div>
-							<div id="collapseTwo" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingTwo"
-								aria-expanded="false" style="height: 0px;">
-								<div class="panel-body">
-									<h4>Group B</h4>
-									<h4>Group C</h4>
-									<h4>Group D</h4>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingThree"
-								data-toggle="collapse" data-parent="#accordion"
-								href="#collapseThree" aria-expanded="false"
-								aria-controls="collapseThree" class="collapsed">
-								<h3 class="panel-title">Get Assessment from Group</h3>
-							</div>
-							<div id="collapseThree" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingThree"
-								aria-expanded="false" style="height: 0px;">
-								<div class="panel-body">
-									<h4>Group E</h4>
-									<h4>Group F</h4>
-									<h4>Group G</h4>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingFour"
-								data-toggle="collapse" data-parent="#accordion"
-								href="#collapseFour" aria-expanded="false"
-								aria-controls="collapseFour" class="collapsed">
-								<h3 class="panel-title">Forum</h3>
-							</div>
-							<div id="collapseFour" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingFour"
-								aria-expanded="false" style="height: 0px;">
-								<div class="panel-body">Forum need to be discussed more
-									details.</div>
-							</div>
+		<div class="bs-example" data-example-id="collapse-accordion"
+			style="text-align: center;">
+			<div class="panel-group" id="accordion" role="tablist"
+				aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne"
+						data-toggle="collapse" data-parent="#accordion"
+						href="#collapseOne" aria-expanded="false"
+						aria-controls="collapseOne" class="collapsed">
+						<h3 class="panel-title">Group Member</h3>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingOne" aria-expanded="false"
+						style="height: 0px;">
+						<div class="panel-body">
+							<h4>Milli Zhu</h4>
+							<h4>Nenyao Wang</h4>
+							<h4>Eason Shar</h4>
 						</div>
 					</div>
 				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo"
+						data-toggle="collapse" data-parent="#accordion"
+						href="#collapseTwo" aria-expanded="false"
+						aria-controls="collapseTwo" class="collapsed">
+						<h3 class="panel-title">Give Assessment to Group</h3>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false"
+						style="height: 0px;">
+						<div class="panel-body">
+							<h4>Group B</h4>
+							<h4>Group C</h4>
+							<h4>Group D</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree"
+						data-toggle="collapse" data-parent="#accordion"
+						href="#collapseThree" aria-expanded="false"
+						aria-controls="collapseThree" class="collapsed">
+						<h3 class="panel-title">Get Assessment from Group</h3>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingThree"
+						aria-expanded="false" style="height: 0px;">
+						<div class="panel-body">
+							<h4>Group E</h4>
+							<h4>Group F</h4>
+							<h4>Group G</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFour"
+						data-toggle="collapse" data-parent="#accordion"
+						href="#collapseFour" aria-expanded="false"
+						aria-controls="collapseFour" class="collapsed">
+						<h3 class="panel-title">Forum</h3>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingFour"
+						aria-expanded="false" style="height: 0px;">
+						<div class="panel-body">
+							<div class="panel panel-default forum-discuss" style="margin-bottom: 30px;">
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="popover right">
+											<div class="arrow"></div>
+											<h3 class="popover-title">Popover right</h3>
+											<div class="popover-content">
+												<p>Sed posuere consectetur est at lobortis. Aenean eu leo
+													quam. Pellentesque ornare sem lacinia quam venenatis
+													vestibulum.</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12">
+										<div class="popover left">
+											<div class="arrow"></div>
+											<h3 class="popover-title">Popover left</h3>
+											<div class="popover-content">
+												<p>Sed posuere consectetur est at lobortis. Aenean eu leo
+													quam. Pellentesque ornare sem lacinia quam venenatis
+													vestibulum.</p>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-1 col-md-offset-2">
+									<h4>Contents</h4>
+								</div>
+								<div class="col-md-7">
+									<textarea class="form-control assessment-comments" rows="6"
+										style="max-width: 734px;"></textarea>
+								</div>
+							</div>
+							<div style="text-align: center; margin-bottom: 30px;">
+								<button type="button" class="btn btn-default"
+									style="width: 300px;">Post</button>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
