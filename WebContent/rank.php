@@ -13,6 +13,7 @@
 
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
+<script src="js/logout.js"></script>
 </head>
 <body>
 
@@ -25,11 +26,11 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
-			<li class="tab-admin-style"><a
-				href="admin_allocate_student.php">Group</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_group.php">Assessment</a></li>
-			<li class="tab-admin-style active"><a>Rank</a></li>
+			<li class="tab-style"><a href="admin_home.php">Home</a></li>
+			<li class="tab-style"><a href="admin_allocate_student.php">Group</a></li>
+			<li class="tab-style"><a href="admin_allocate_group.php">Assessment</a></li>
+			<li class="tab-style active"><a>Rank</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
@@ -44,103 +45,37 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Username</th>
+								<th>Rank</th>
+								<th>Group</th>
+								<th>Totalmark</th>
+
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
+                        
+                        
+                        
+<?php include("php/Connections/connect.php"); ?>
+<?php
+
+$result = mysql_query ( "SELECT * FROM grade order by `rank` ", $link );
+
+while ( $row = mysql_fetch_array ( $result ) ) {
+	
+	$rank = $row ['rank'];
+	$groupID = $row ['groupID'];
+	$totalMark = $row ['totalMark'];
+	
+	echo " <tr> ";
+	echo "<th scope=row>$rank</th> ";
+	echo " <td> $groupID </td> ";
+	echo " <td> $totalMark  </td> ";
+	echo " </tr> ";
+}
+
+?>
+                        
+						
 						</tbody>
 					</table>
 				</div>

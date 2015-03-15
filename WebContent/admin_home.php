@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,47 @@
 <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap/bootstrap.min.js"></script>
 
+
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
+<script src="js/logout.js"></script>
+<script>
+$(document).ready( function() {
+	$("#search-button").click(function(){
+	var search = $("#searchInput").val(); 
+	if(search!=""){
+		$.ajax({
+			  type: "POST",
+			  url: "php/search.php",
+			  dataType: 'json',
+			  data:{
+				  search : search
+			   }, 
+			  success: function(data) {
+				  
+				  var $json=eval(data);				    	  
+				  var fullname = $json.fullname;
+				  var studentId = $json.studentId;
+				  var email = $json.email;
+				  var gender = $json.gender;
+				  var hometown= $json.hometown;
+				  document.getElementById("fullNameText").innerHTML = "<small>Full Name</small>"+fullname;
+
+				  document.getElementById("studentIdText").innerHTML = "<small>Student ID</small>"+studentId;
+				  document.getElementById("emailText").innerHTML = "<small>Email</small>"+email;
+				  document.getElementById("genderText").innerHTML = "<small>Gender</small>"+gender;
+				  document.getElementById("hometownText").innerHTML = "<small>Hometown</small>"+hometown;
+				  $("#search-context").show();
+				  
+			   },
+			   error: function(data) { alert("Search Failed！") }
+		  });
+	}
+	
+	
+});
+});
+</script>
 </head>
 <body>
 
@@ -25,128 +65,48 @@
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style active"><a>Home</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_student.php">Group</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_group.php">Assessment</a></li>
-			<li class="tab-admin-style"><a href="rank.php">Rank</a></li>
+			<li class="tab-style active"><a>Home</a></li>
+			<li class="tab-style"><a href="admin_allocate_student.php">Group</a></li>
+			<li class="tab-style"><a href="admin_allocate_group.php">Assessment</a></li>
+			<li class="tab-style"><a href="php/totalmark.php">Rank</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
+
 		</ul>
 	</div>
 	<!--end of tab-->
 
 	<div class="content">
-		<div class="search-container row">
-			<form method="post" action="search.php" name="searchform">
+		<div class="search-container row" id="search-container">
+			<form method="post" id="searchform">
 				<div class="col-md-7" style="margin-left: 100px;">
 					<input type="text" name="search" class="form-control"
-						placeholder="Search Student Name">
+						id="searchInput" placeholder="Search Fullname">
 				</div>
 				<div class="col-md-3" style="text-align: center;">
 					<input type="button" class="btn btn-primary" style="width: 100px;"
 						id="search-button" value="Search"></input>
 				</div>
 			</form>
-
 			<div class="panel panel-default result-container" id="search-context"
 				style="display: none;">
 				<div class="profile-content"
 					style="padding-top: 10px; padding-bottom: 10px;">
-					<h3>
-						<small>Full Name</small><?php echo $a;?>
-			</h3>
-					<h3>
-						<small>Student ID</small><?php echo $b;?>
-			</h3>
-					<h3>
-						<small>Gender</small><?php echo $d;?>
-			</h3>
-					<h3>
-						<small>Hometown</small><?php echo $e;?>
-			</h3>
-					<h3>
-						<small>Email</small><?php echo $c;?>
-			</h3>
 
-				</div>
-				<div class="edit-profile">
-					<button id="close-button" class="btn btn-default btn-lg">Close</button>
-					<button id="add" class="btn btn-primary btn-lg" data-toggle="modal"
-						data-target="#add-event">Edit</button>
-				</div>
-
-				<div class="modal fade" id="add-event" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<form id=editform method=post action="edit.php">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-									<h4 class="modal-title" id="myModalLabel">Edit</h4>
-								</div>
-								<div class="modal-body">
-									<div class="row row-margin-top">
-										<div class="col-xs-4 edit-profile-text">
-											<p>Fullname</p>
-										</div>
-										<div class="col-xs-6">
-											<input class="form-control" name=fullname
-												placeholder="<?=$array1['fullname'];?>"></input>
-										</div>
-									</div>
-
-									<div class="row row-margin-top">
-										<div class="col-xs-4 edit-profile-text">
-											<p>Password</p>
-										</div>
-										<div class="col-xs-6">
-											<input class="form-control" name=password type=password
-												placeholder="*****"></input>
-										</div>
-									</div>
-
-									<div class="row row-margin-top">
-										<div class="col-xs-4 edit-profile-text">
-											<p>Retype Password</p>
-										</div>
-										<div class="col-xs-6">
-											<input class="form-control" type=password placeholder="*****"></input>
-										</div>
-									</div>
-
-									<div class="row row-margin-top">
-										<div class="col-xs-4 edit-profile-text">
-											<p>Email</p>
-										</div>
-										<div class="col-xs-6">
-											<input class="form-control" name=email
-												placeholder="<?=$array1['email'];?>"></input>
-										</div>
-									</div>
-
-									<div class="row row-margin-top">
-										<div class="col-xs-4 edit-profile-text">
-											<p>Hometown</p>
-										</div>
-										<div class="col-xs-6">
-											<input class="form-control" name=hometown
-												placeholder="<?=$array1['hometown'];?>"></input>
-										</div>
-									</div>
-								</div>
-								<input type="hidden" name="studentId"
-									value="<?=$array1['studentID'];?>" />
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
-
-									<input type="submit" class="btn btn-primary" value="save"></input>
-
-								</div>
-							</form>
-						</div>
-					</div>
+					<h3 id="fullNameText">
+						<small>Full Name</small>
+						<h3 id="studentIdText">
+							<small>Student ID</small>
+						</h3>
+						<h3 id="genderText">
+							<small>Gender</small>
+						</h3>
+						<h3 id="hometownText">
+							<small>Hometown</small>
+						</h3>
+						<h3 id="emailText">
+							<small>Email</small>
+						</h3>
+				
 				</div>
 				<!--end of edit window-->
 			</div>
@@ -175,12 +135,12 @@
 						<tbody>
  <?php
 	
-	include ("php/Connections/connect.php");
-	$result = mysql_query ( "select*from student_information", $link );
+include ("php/Connections/connect.php");
+	$result = mysql_query ( "select*from student", $link );
 	$i = 1;
 	while ( $row = mysql_fetch_array ( $result ) ) {
 		
-		$id = $row ['studentId'];
+		$id = $row ['studentID'];
 		$fullname = $row ['fullname'];
 		$email = $row ['email'];
 		$gender = $row ['gender'];
@@ -201,23 +161,6 @@
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-	$(document).ready(function(){ 
-	    $("#search-button").click(function(){
-	        $("#search-context").show();
-	        document.getElementById("searchform").sumbit();
-	        //$("#searchform").sumbit();
-	    });
-	});
-	$(document).ready(function(){ 
-	    $("#close-button").click(function(){
-	        $("#search-context").hide();
-	        document.getElementById("searchform").sumbit();
-	        //$("#searchform").sumbit();
-	    });
-	});
-	</script>
 
 </body>
 </html>

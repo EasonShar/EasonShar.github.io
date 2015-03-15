@@ -26,10 +26,10 @@ function read_group($group, $link) {
 <script src="libs/bootstrap/bootstrap.min.js"></script>
 
 <!--Own coding -->
-<script src="cookie.js"></script>
+<script src="js/cookie.js"></script>
 <link href="css/student.css" rel="stylesheet" />
 <script src="js/allocate.js"></script>
-
+<script src="js/logout.js"></script>
 </head>
 <body>
 	<div class="page-header">
@@ -41,10 +41,11 @@ function read_group($group, $link) {
 
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-admin-style"><a href="admin_home.php">Home</a></li>
-			<li class="tab-admin-style"><a href="admin_allocate_student.php">Group</a></li>
-			<li class="tab-admin-style active"><a>Assessment</a></li>
-			<li class="tab-admin-style"><a href="rank.php">Rank</a></li>
+			<li class="tab-style"><a href="admin_home.php">Home</a></li>
+			<li class="tab-style"><a href="admin_allocate_student.php">Group</a></li>
+			<li class="tab-style active"><a>Assessment</a></li>
+			<li class="tab-style"><a href="php/totalmark.php">Rank</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
@@ -289,7 +290,7 @@ function read_group($group, $link) {
 		
 		setCookie("groupIndex",JSON.stringify(groupIndex),3600);
 		setCookie("groupAllocated",JSON.stringify(groupAllocated),3600);
-		location.href='postGroup.php';	
+		location.href='php/allocate_group.php';	
 		
 	}
     </script>

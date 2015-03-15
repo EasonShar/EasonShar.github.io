@@ -1,3 +1,17 @@
+<?php
+session_start ();
+include ("php/Connections/connect.php");
+
+$username = $_SESSION ['username'];
+$rs = mysql_query ( "SELECT * FROM student WHERE username='$username'", $link );
+$array = mysql_fetch_array ( $rs );
+$groupID = $array ['groupID'];
+
+$rs2 = mysql_query ( "select groupAuthor from assessment WHERE groupAllocated = '$groupID'", $link );
+$groupAuthor1 = mysql_result ( $rs2, 0 );
+$groupAuthor2 = mysql_result ( $rs2, 1 );
+$groupAuthor3 = mysql_result ( $rs2, 2 );
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,31 +27,34 @@
 
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
+<script src="js/logout.js"></script>
 </head>
 <body>
 
 	<div class="page-header">
 		<h1>
-			Peer System <small>Shar, Welcome!</small>
+			Peer System <small><?php echo $array['fullname'];?>, Welcome!</small>
 		</h1>
 	</div>
 	<!--end of header-->
-
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-style"><a href="student_home.php">Home</a></li>
 			<li class="tab-style"><a href="student_group.php">Group</a></li>
 			<li class="tab-style"><a href="student_report.php">Report</a></li>
 			<li class="tab-style active"><a>Assessment</a></li>
-			<li class="tab-style"><a href="student_logout.php">Log Out</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="tab-assessment-style"><a href="html_assessment/assessment1.php">Group A Report</a></li>
-			<li class="tab-assessment-style"><a href="html_assessment/assessment2.php">Group B Report</a></li>
-			<li class="tab-assessment-style"><a href="html_assessment/assessment3.php">Group C Report</a></li>
+			<li class="tab-assessment-style"><a
+				href="page_assessment/assessment1.php">Group <?php echo $groupAuthor1;?> Report</a></li>
+			<li class="tab-assessment-style"><a
+				href="page_assessment/assessment2.php">Group <?php echo $groupAuthor2;?> Report</a></li>
+			<li class="tab-assessment-style"><a
+				href="page_assessment/assessment3.php">Group <?php echo $groupAuthor3;?> Report</a></li>
 		</ul>
 	</div>
 	<div class="content"></div>

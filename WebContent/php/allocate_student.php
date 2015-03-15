@@ -1,4 +1,4 @@
-<?php include("php/Connections/connect.php");?>
+<?php include("Connections/connect.php");?>
 <?php
 
 $student = JSON_decode($_COOKIE ["student"]);
@@ -14,6 +14,6 @@ for($i = 0; $i < count ( $student ); $i ++){
 		die ( 'Error: ' . mysql_error () );
 	}
 }
-echo "<script> alert('Save successfully!');location.href='admin_allocate_student.php';exit;</script>"
+echo "<script> alert('Save successfully!');location.href='../admin_allocate_student.php';exit;</script>"
 
 ?>

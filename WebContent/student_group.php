@@ -1,3 +1,28 @@
+<?php
+session_start ();
+include ("php/Connections/connect.php");
+$username = $_SESSION ['username'];
+$rs = mysql_query ( "SELECT * FROM student WHERE student.username='$username'", $link );
+$array = mysql_fetch_array ( $rs );
+$fullname = $array ['fullname'];
+$groupID = $array ['groupID'];
+
+$rs2 = mysql_query ( "select groupAuthor from assessment WHERE groupAllocated = '$groupID'", $link );
+$groupAuthor1 = mysql_result ( $rs2, 0 );
+$groupAuthor2 = mysql_result ( $rs2, 1 );
+$groupAuthor3 = mysql_result ( $rs2, 2 );
+
+$rs3 = mysql_query ( "SELECT fullname FROM student WHERE groupID='$groupID' and fullname!='$fullname'", $link );
+$member1 = mysql_result ( $rs3, 0 );
+$member2 = mysql_result ( $rs3, 1 );
+
+$rs4 = mysql_query ( "select groupAllocated from assessment WHERE groupAuthor = '$groupID'", $link );
+$groupAllocated1 = mysql_result ( $rs4, 0 );
+$groupAllocated2 = mysql_result ( $rs4, 1 );
+$groupAllocated3 = mysql_result ( $rs4, 2 );
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,29 +38,29 @@
 
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
+<script src="js/logout.js"></script>
 </head>
 <body>
 
 	<div class="page-header">
 		<h1>
-			Peer System <small>Shar, Welcome!</small>
+			Peer System <small><?php echo $fullname;?>, Welcome!</small>
 		</h1>
 	</div>
 	<!--end of header-->
-
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-style"><a href="student_home.php">Home</a></li>
 			<li class="tab-style active"><a>Group</a></li>
 			<li class="tab-style"><a href="student_report.php">Report</a></li>
 			<li class="tab-style"><a href="student_assessment.php">Assessment</a></li>
-			<li class="tab-style"><a href="student_logout.php">Log Out</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
 
 	<div class="content">
-		<h2 style="margin-left: 30px;">You are allocated to Group A.</h2>
+		<h2 style="margin-left: 30px;">You are allocated to Group <?php echo $groupID; ?>.</h2>
 		<div class="bs-example" data-example-id="collapse-accordion"
 			style="text-align: center;">
 			<div class="panel-group" id="accordion" role="tablist"
@@ -45,15 +70,14 @@
 						data-toggle="collapse" data-parent="#accordion"
 						href="#collapseOne" aria-expanded="false"
 						aria-controls="collapseOne" class="collapsed">
-						<h3 class="panel-title">Group Member</h3>
+						<h3 class="panel-title">Group Members</h3>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingOne" aria-expanded="false"
 						style="height: 0px;">
 						<div class="panel-body">
-							<h4>Milli Zhu</h4>
-							<h4>Nenyao Wang</h4>
-							<h4>Eason Shar</h4>
+							<h4><?php echo $member1;?></h4>
+							<h4><?php echo $member2;?></h4>
 						</div>
 					</div>
 				</div>
@@ -62,15 +86,15 @@
 						data-toggle="collapse" data-parent="#accordion"
 						href="#collapseTwo" aria-expanded="false"
 						aria-controls="collapseTwo" class="collapsed">
-						<h3 class="panel-title">Give Assessment to Group</h3>
+						<h3 class="panel-title">Give Assessment to Groups</h3>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false"
 						style="height: 0px;">
 						<div class="panel-body">
-							<h4>Group B</h4>
-							<h4>Group C</h4>
-							<h4>Group D</h4>
+							<h4>Group <?php echo $groupAuthor1;?></h4>
+							<h4>Group <?php echo $groupAuthor2;?></h4>
+							<h4>Group <?php echo $groupAuthor3;?></h4>
 						</div>
 					</div>
 				</div>
@@ -79,18 +103,19 @@
 						data-toggle="collapse" data-parent="#accordion"
 						href="#collapseThree" aria-expanded="false"
 						aria-controls="collapseThree" class="collapsed">
-						<h3 class="panel-title">Get Assessment from Group</h3>
+						<h3 class="panel-title">Get Assessment from Groups</h3>
 					</div>
 					<div id="collapseThree" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingThree"
 						aria-expanded="false" style="height: 0px;">
 						<div class="panel-body">
-							<h4>Group E</h4>
-							<h4>Group F</h4>
-							<h4>Group G</h4>
+							<h4>Group <?php echo $groupAllocated1;?></h4>
+							<h4>Group <?php echo $groupAllocated2;?></h4>
+							<h4>Group <?php echo $groupAllocated3;?></h4>
 						</div>
 					</div>
 				</div>
+
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingFour"
 						data-toggle="collapse" data-parent="#accordion"
@@ -98,53 +123,89 @@
 						aria-controls="collapseFour" class="collapsed">
 						<h3 class="panel-title">Forum</h3>
 					</div>
+					<?php
+					
+					$username1 = mysql_query ( "SELECT username FROM studnent WHERE fullname='$member1'", $link );
+					echo $username1;
+					?>
+
 					<div id="collapseFour" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingFour"
 						aria-expanded="false" style="height: 0px;">
 						<div class="panel-body">
-							<div class="panel panel-default forum-discuss" style="margin-bottom: 30px;">
+							<div class="panel panel-default forum-discuss"
+								style="margin-bottom: 30px;">
+								<div class="row">     
+<?php
+$memberuser = array ();
+$rs4 = mysql_query ( "SELECT username as u FROM student WHERE fullname='$member1' ", $link );
+while ( $array4 = mysql_fetch_array ( $rs4 ) ) {
+	$memberuser [0] = $array4 ['u'];
+}
 
+$rs5 = mysql_query ( "SELECT username as u FROM student WHERE fullname='$member2' ", $link );
+while ( $array5 = mysql_fetch_array ( $rs5 ) ) {
+	$memberuser [1] = $array5 ['u'];
+}
+
+$result = mysql_query ( "select*from forum where username= '$username' or username= '$memberuser[1]'or username= '$memberuser[0]'order by date ", $link );
+
+$a = array ();
+while ( $row = mysql_fetch_array ( $result ) ) {
+	$user = $row ['username'];
+	$content = $row ['content'];
+	$arr = array (
+			$username,
+			' ' 
+	);
+	
+	$usernamespace = implode ( "", $arr );
+	
+	if ($user == $username or $user == $usernamespace) {
+		echo " <div class=\"col-xs-12\"> ";
+		echo " <div class=\"popover left\">";
+		echo " <div class=\"arrow\"></div>";
+		echo " <h3 class=\"popover-title\"> ";
+		echo $user;
+		echo " </h3>";
+		echo "<div class=\"popover-content\">";
+		echo " <p>  $content   </p>";
+		echo " </div>";
+		echo " </div>";
+		echo " </div>";
+	} else {
+		echo " <div class=col-xs-12> ";
+		echo " <div class=\"popover right\">";
+		echo " <div class=arrow></div>";
+		echo " <h3 class=popover-title> ";
+		echo $user;
+		echo "</h3>";
+		echo "<div class=\"popover-content\">";
+		echo " <p>  $content   </p>";
+		echo " </div>";
+		echo " </div>";
+		echo " </div>";
+	}
+}
+?>   
+								</div>
+							</div>
+							<form method=post action="forum/forum.php">
 								<div class="row">
-									<div class="col-xs-12">
-										<div class="popover right">
-											<div class="arrow"></div>
-											<h3 class="popover-title">Popover right</h3>
-											<div class="popover-content">
-												<p>Sed posuere consectetur est at lobortis. Aenean eu leo
-													quam. Pellentesque ornare sem lacinia quam venenatis
-													vestibulum.</p>
-											</div>
-										</div>
+									<div class="col-md-1 col-md-offset-2">
+										<h4>Contents</h4>
 									</div>
-									<div class="col-xs-12">
-										<div class="popover left">
-											<div class="arrow"></div>
-											<h3 class="popover-title">Popover left</h3>
-											<div class="popover-content">
-												<p>Sed posuere consectetur est at lobortis. Aenean eu leo
-													quam. Pellentesque ornare sem lacinia quam venenatis
-													vestibulum.</p>
-											</div>
-										</div>
+									<div class="col-md-7">
+										<textarea name="content"
+											class="form-control assessment-comments" rows="6"
+											style="max-width: 734px;"></textarea>
 									</div>
-
 								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-md-1 col-md-offset-2">
-									<h4>Contents</h4>
+								<div style="text-align: center; margin-bottom: 30px;">
+									<input class="btn btn-default" style="width: 300px;"
+										value="Post" type=submit name=submit>
 								</div>
-								<div class="col-md-7">
-									<textarea class="form-control assessment-comments" rows="6"
-										style="max-width: 734px;"></textarea>
-								</div>
-							</div>
-							<div style="text-align: center; margin-bottom: 30px;">
-								<button type="button" class="btn btn-default"
-									style="width: 300px;">Post</button>
-							</div>
-
+							</form>
 
 						</div>
 					</div>

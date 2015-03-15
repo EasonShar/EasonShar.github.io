@@ -1,3 +1,32 @@
+<?php
+
+session_start ();
+include ("../php/Connections/connect.php");
+
+$username = $_SESSION ['username'];
+$rs = mysql_query ( "SELECT * FROM student WHERE username='$username'", $link );
+$array = mysql_fetch_array ( $rs );
+$groupID = $array ['groupID'];
+
+$rs2 = mysql_query ( "select groupAuthor from assessment WHERE groupAllocated = '$groupID'", $link );
+$groupAuthor1 = mysql_result ( $rs2, 0 );
+$groupAuthor2 = mysql_result ( $rs2, 1 );
+$groupAuthor3 = mysql_result ( $rs2, 2 );
+
+$rs3 = mysql_query ( "select * from assessment WHERE groupAllocated='$groupID' AND groupAuthor='$groupAuthor3'" );
+$array3 = mysql_fetch_array ( $rs3 );
+if (isset ( $_POST ['submit'] )) {
+	$mark = $_POST [mark];
+	$comments = $_POST [comments];
+	if (! empty ( $array3 ['mark'] ) || ! empty ( $array3 ['comments'] )) {
+		echo "<script> alert('Your group has already submit assessment.');location.href='assessment3.php';exit;</script>";
+	} else {
+		$submit = "update assessment set mark='$mark',comments='$comments' WHERE groupAllocated='$groupID' AND groupAuthor='$groupAuthor3'";
+		mysql_query ( $submit, $link );
+		echo "<script> alert('Submit successfully');location.href='assessment3.php';exit;</script>";
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,153 +42,86 @@
 
 <!--Own coding -->
 <link href="../css/student.css" rel="stylesheet" />
+<script src="../js/logout.js"></script>
 </head>
 <body>
 
 	<div class="page-header">
 		<h1>
-			Peer System <small>Shar, Welcome!</small>
+			Peer System <small><?php echo $array['fullname'];?>, Welcome!</small>
 		</h1>
 	</div>
 	<!--end of header-->
-
+	
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-style"><a href="../student_home.php">Home</a></li>
 			<li class="tab-style"><a href="../student_group.php">Group</a></li>
 			<li class="tab-style"><a href="../student_report.php">Report</a></li>
-			<li class="tab-style active"><a
-				href="../student_assessment.php">Assessment</a></li>
-			<li class="tab-style"><a href="../student_logout.php">Log
-					Out</a></li>
+			<li class="tab-style active"><a href="../student_assessment.php">Assessment</a></li>
+			<li class="tab-style" id="logout"><a href="../php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
 	<div class="bs-example bs-example-tabs">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="tab-assessment-style"><a href="assessment1.php">Group
-					A Report</a></li>
+					<?php echo $groupAuthor1;?> Report</a></li>
 			<li class="tab-assessment-style"><a href="assessment2.php">Group
-					B Report</a></li>
-			<li class="tab-assessment-style active"><a>Group C Report</a></li>
+					<?php echo $groupAuthor2;?> Report</a></li>
+			<li class="tab-assessment-style active"><a>Group <?php echo $groupAuthor3;?> Report</a></li>
 		</ul>
 	</div>
 	<!--end of secondary tab-->
 
+	 <?php
+		
+		if (! isset ( $groupAuthor3 ) or $groupAuthor3 == "")
+			die ( "error:This group has not upload report." );
+		
+		$sql = "select * from grade where groupID='$groupAuthor3'";
+		$result = mysql_query ( $sql,$link );
+		$array2 = mysql_fetch_array ( $result );
+		
+		?>
 	<div class="content">
 		<div class="panel panel-default report-container">
 			<div class="panel-heading">
-				<h3 class="panel-title">Nenyao Wang</h3>
+				<h3 class="panel-title">Tittle:<?php echo $array2['report_title'];?></h3>
 			</div>
 			<div class="panel-body">
-				<p>The woman in this photograph has been identified as both
-					Hilda Urlin Petrie and Amy Urlin. The two women were sisters -
-					Hilda Petrie was married to Flinders Petrie, while Amy Urlin was
-					unmarried. The Urlin family was relatively wealthy, and had homes
-					in Sussex and London. Amy was born in 1865, Hilda in 1871. Like
-					many unmarried Victorian ladies, Amy Urlin kept busy helping the
-					less fortunate. She was part of the Charity Organisation Society, a
-					Victorian institution devoted to addressing poverty and family
-					problems.</p>
-				<p>After her marriage to Flinders Petrie, Hilda wrote letters to
-					Amy when the Petries were excavating in Egypt. Amy joined Hilda and
-					Flinders Petrie at Abydos for the 1900/1901 season.</p>
-				<p>Amy was put in charge of pottery fragments. Hilda recorded in
-					her diary that Amy spent hours carefully fitting pieces of ancient
-					bowls together. With a special adhesive mixture called seccotine,
-					she glued the pieces together. The completed bowls would then be
-					given to Flinders Petrie to draw.</p>
-				<p>Hilda Petrie was a formidable figure to many of Petrie's
-					students and associates. During her teenage years she had formed a
-					friendship with the daughter of noted suffrage campaigner Millicent
-					Garrett Fawcett. On arriving in Egypt for the first time in 1896,
-					she replaced her skirts with practical trousers. During excavations
-					she copied inscriptions so inaccessible that she drew them while
-					lying on the ground. These copies ended up in the publications
-					Petrie became noted for producing quickly after the end of the
-					excavation season.</p>
-				<p>During the 1902/1903 season, the last excavation the Petries
-					conducted at Abydos for decades, Hilda and two other women,
-					Margaret Murray and Winfred Hansard, were able to conduct a small
-					excavation themselves - in an area near the back of Seti I's temple
-					called the Osireion.</p>
-				<p>Hilda also played a significant role in fundraising for
-					excavations - she was one of two Honorary Secretaries for the
-					British School of Archaeology in Egypt, gathering subscriptions to
-					send Petrie's students to Egypt to obtain excavation experience.
-					Her contributions to publicising and fundraising were marked. She
-					lectured extensively at women's clubs and literary societies, and
-					by the 1930s she was giving radio broadcasts on the excavations in
-					Palestine.</p>
-				<p>The woman in this photograph has been identified as both
-					Hilda Urlin Petrie and Amy Urlin. The two women were sisters -
-					Hilda Petrie was married to Flinders Petrie, while Amy Urlin was
-					unmarried. The Urlin family was relatively wealthy, and had homes
-					in Sussex and London. Amy was born in 1865, Hilda in 1871. Like
-					many unmarried Victorian ladies, Amy Urlin kept busy helping the
-					less fortunate. She was part of the Charity Organisation Society, a
-					Victorian institution devoted to addressing poverty and family
-					problems.</p>
-				<p>After her marriage to Flinders Petrie, Hilda wrote letters to
-					Amy when the Petries were excavating in Egypt. Amy joined Hilda and
-					Flinders Petrie at Abydos for the 1900/1901 season.</p>
-				<p>Amy was put in charge of pottery fragments. Hilda recorded in
-					her diary that Amy spent hours carefully fitting pieces of ancient
-					bowls together. With a special adhesive mixture called seccotine,
-					she glued the pieces together. The completed bowls would then be
-					given to Flinders Petrie to draw.</p>
-				<p>Hilda Petrie was a formidable figure to many of Petrie's
-					students and associates. During her teenage years she had formed a
-					friendship with the daughter of noted suffrage campaigner Millicent
-					Garrett Fawcett. On arriving in Egypt for the first time in 1896,
-					she replaced her skirts with practical trousers. During excavations
-					she copied inscriptions so inaccessible that she drew them while
-					lying on the ground. These copies ended up in the publications
-					Petrie became noted for producing quickly after the end of the
-					excavation season.</p>
-				<p>During the 1902/1903 season, the last excavation the Petries
-					conducted at Abydos for decades, Hilda and two other women,
-					Margaret Murray and Winfred Hansard, were able to conduct a small
-					excavation themselves - in an area near the back of Seti I's temple
-					called the Osireion.</p>
-				<p>Hilda also played a significant role in fundraising for
-					excavations - she was one of two Honorary Secretaries for the
-					British School of Archaeology in Egypt, gathering subscriptions to
-					send Petrie's students to Egypt to obtain excavation experience.
-					Her contributions to publicising and fundraising were marked. She
-					lectured extensively at women's clubs and literary societies, and
-					by the 1930s she was giving radio broadcasts on the excavations in
-					Palestine.</p>
-
+				<p><?php echo $array2['report_content'];?></p>
 			</div>
 		</div>
 		<!--end of report container-->
-		<div class="row">
-			<div class="col-md-1 col-md-offset-2">
-				<h4>Mark</h4>
+		<form id="markform" method=post
+			action="<?php echo $_SERVER['PHP_SELF'];?>">
+			<div class="row">
+				<div class="col-md-1 col-md-offset-2">
+					<h4>Mark</h4>
+				</div>
+				<div class="col-md-2">
+					<input class="form-control" name="mark" placeholder="out of 100">
+				</div>
 			</div>
-			<div class="col-md-2">
-				<input class="form-control" placeholder="out of 100">
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-1 col-md-offset-2">
-				<h4>Comments</h4>
+			<div class="row">
+				<div class="col-md-1 col-md-offset-2">
+					<h4>Comments</h4>
+				</div>
+				<div class="col-md-7">
+					<textarea class="form-control assessment-comments" name="comments"
+						rows="6" style="max-width: 734px;"></textarea>
+				</div>
 			</div>
-			<div class="col-md-7">
-				<textarea class="form-control assessment-comments" rows="6"
-					style="max-width: 734px;"></textarea>
-			</div>
-		</div>
 
-		<div style="text-align: center; margin-bottom: 30px;">
-			<button type="button" class="btn btn-default" style="width: 300px;">Submit</button>
-		</div>
+			<div style="text-align: center; margin-bottom: 30px;">
+				<input type="submit" name="submit" value="submit"
+					class="btn btn-default" style="width: 300px;"></input>
+			</div>
+		</form>
 
 	</div>
-
-
 
 </body>
 </html>

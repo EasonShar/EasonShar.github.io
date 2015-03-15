@@ -23,6 +23,7 @@ $row = mysql_num_rows ( $rs );
 
 <!--Own coding -->
 <link href="css/student.css" rel="stylesheet" />
+<script src="js/logout.js"></script>
 </head>
 <body>
 
@@ -39,7 +40,7 @@ $row = mysql_num_rows ( $rs );
 			<li class="tab-style"><a href="student_group.php">Group</a></li>
 			<li class="tab-style"><a href="student_report.php">Report</a></li>
 			<li class="tab-style"><a href="student_assessment.php">Assessment</a></li>
-			<li class="tab-style"><a href="student_logout.php">Log Out</a></li>
+			<li class="tab-style" id="logout"><a href="php/logout.php">Log Out</a></li>
 		</ul>
 	</div>
 	<!--end of tab-->
@@ -64,13 +65,10 @@ $row = mysql_num_rows ( $rs );
 		</div>
 		<!--end of profile list-->
 
-
 		<div class="edit-profile">
 			<button id="add" class="btn btn-primary btn-lg" data-toggle="modal"
 				data-target="#add-event">edit</button>
 		</div>
-
-
 
 		<!--start of edit window-->
 		<?php
@@ -86,7 +84,7 @@ $row = mysql_num_rows ( $rs );
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id=editform method=post action="edit.php">
+					<form id=editform method=post action="php/student_edit.php">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">

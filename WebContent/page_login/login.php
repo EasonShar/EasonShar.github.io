@@ -1,22 +1,35 @@
 <?php session_start(); ?>
    
-<?php include("../php/Connections/connect.php"); ?>
-<?php
+   <?php include("../php/Connections/connect.php"); ?>
+<?php  
 
-$username = $_POST ['username'];
-$password = $_POST ['password'];
+ 
+ $username = $_POST['username'];
+ $password = $_POST['password'];
+ 
 
-$check_query = mysql_query ( "select username from login where username='$username' and password='$password' limit 1" );
-if ($result = mysql_fetch_array ( $check_query )) {
-	
-	$_SESSION ['username'] = $username;
-	echo "<script>location.href='../student_home.php';</script>";
-} 
+$check_query=mysql_query("select*from login where username='$username'",$link);
+$array=mysql_fetch_array($check_query);
+$name=$array['username'];
+$psw=$array['password'];
 
-else {
-	exit ( 'login failed ! please check your username and password, if you are new here, register first !<a href="javascript:history.back(-1);"> back</a> ' );
+
+if($username=="admin" ){//admin login
+	if($password==$psw){
+		echo "<script>alert('admin login successfully');location.href='../admin_home.php';</script>";exit;
+	}else{
+		echo "<script>alert('admin wrong password!');history.back();</script>";exit;
+	}
 }
 
-?>
+		else if ($password==$psw){//user login
+		 $_SESSION['username']=$username;
+		 echo "<script>alert('login successfully');location.href='../student_home.php';</script>";exit;}
+		 else{echo "<script language=javascript>alert('login failed ! please check your username and password, if you are new here, register first !');history.back();</script>";exit;}
 
+		 mysql_free_result($rs);
+		 mysql_close($link);
+
+  
+  ?>
 

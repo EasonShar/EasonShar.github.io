@@ -1,4 +1,4 @@
-<?php include("php/Connections/connect.php");?>
+<?php include("Connections/connect.php");?>
 <?php
 
 $groupIndex = JSON_decode($_COOKIE ["groupIndex"]);
@@ -11,6 +11,6 @@ for($i = 0; $i < count ( $groupIndex ); $i ++){
 		die ( 'Error: ' . mysql_error () );
 	}
 }
-echo "<script> alert('Save successfully!');location.href='admin_allocate_group.php';exit;</script>"
+echo "<script> alert('Save successfully!');location.href='../admin_allocate_group.php';exit;</script>"
 
 ?>
