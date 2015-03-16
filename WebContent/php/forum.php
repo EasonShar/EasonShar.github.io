@@ -1,6 +1,6 @@
 <?php session_start(); ?>
    
-<?php include("../php/Connections/connect.php"); ?>
+<?php include("Connections/connect.php"); ?>
 
 
 <?php

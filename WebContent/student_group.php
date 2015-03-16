@@ -196,7 +196,7 @@ while ( $row = mysql_fetch_array ( $result ) ) {
 ?>   
 								</div>
 							</div>
-							<form method=post action="forum/forum.php">
+							<form method=post action="php/forum.php">
 								<div class="row">
 									<div class="col-md-1 col-md-offset-2">
 										<h4>Contents</h4>
