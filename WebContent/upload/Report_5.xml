@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<report>
+	<part>
+	<Title> Statistic Report</Title>
+</part>
+<part>
+    <text name="Introduction">
+    </text>
+	</part>
+ <part>   
+    <text name="StoryLine1">English is a West Germanic language that was first spoken in early medieval England and is now a global lingua franca.[4][5] It is an official language of almost 60 sovereign states and the most commonly spoken language in sovereign states including the United Kingdom, the United States, Canada, Australia, Ireland, New Zealand and a number of Caribbean nations. It is the third-most-common native language in the world, after Mandarin and Spanish.[6] It is widely learned as a second language and is an official language of the European Union and of the United Nations, as well as of many world organisations.
+        </text>
+		</part>
+<part>        
+    <text name="StoryLine2">WNearly twenty years later, in 1899, Petrie, his wife Hilda, and teams of British assistants and Egyptian workers began excavations at Abydos, the location of an ancient city, cemeteries and temples.  They worked at the site for four consecutive seasons – 1899/1900, 1900/1901, 1901/1902 and 1902/1903.  
+
+    </text>
+	</part>
+<part>    
+    <text name="StoryLine3">This 1895 map of Egypt shows the routes of Cook’s steamships along the Nile River, indicated by the thick red line.  It was published in British Museum Keeper Wallis Budge’s 1895 travel guide The Nile: Notes for Travellers in Egypt. The top green dot is Cairo and the bottom green dot is Abydos. 
+
+    </text>
+	</part>
+<part>    
+    <text name="StoryLine4">You can discover the stories behind the excavation, learn about the people who worked there, and see some of the objects as they were first uncovered.
+    </text>
+	</part>
+<part>    
+    <text name="StoryLine5">Abydos is one of the largest ancient sites in Egypt covering an area of about 12.5 square kilometres of the desert margin between the cliffs of the high desert and the modern villages and fields.  During his seasons of excavations at Abydos at the turn of the 20th century, Flinders Petrie concentrated on only a part of the site’s rich history – he was mainly concerned with the history of the earliest kings of Egypt (early 3rd Millenium BC).  The history of Abydos and the history of excavations there is much more complex; there is evidence of occupation at the site from the Palaeolithic to the medieval periods.
+
+Throughout the history of ancient Egypt, Abydos was an important ancient Egyptian religious centre and cemetery on the west bank of the Nile.  The remains of the Temple of Seti I (early 13th century BC) and the tombs of Egypt’s earliest kings are found at Abydos. It is also the centre of worship for Osiris (the Egyptian god of the Underworld) and where his tomb was believed to be.  Many ancient Egyptians wanted to be buried close to this important god and placed stelae (tablets) near their burial sites.  They also built chapels on the processional way from the main Osiris temple to the tomb identified as the burial place of the god.
+
+The northern part of the site has the richest concentration of ancient remains. Here once stood the main temple complex dedicated to the god Osiris, which served as the religious focus at Abydos for three thousand years. Although the temple has all but vanished, parts of its huge mud-brick enclosure wall can still be seen, originally measuring 327 metres long, 7 metres thick and at least 5 metres high.  
+
+In the desert plain west of the Osiris temple is a vast cemetery filled with thousands of tombs belonging to ordinary ancient Egyptians from all periods who wished to be buried close to the god of the Underworld.
+
+Two kilometres west of the Osiris temple is a royal cemetery with tombs of kings from the first two dynasties.  Many of these kings also built huge rectangular mud-brick enclosures, also called “Fortresses”, in which funerary rituals were conducted. Only the largest of these enclosures is visible today, measuring 126 metres x 65 metres x 11 metres high.  It belonged to Khasekhemwy, a king of the 2nd Dynasty (around 2700 BC). 
+
+Less than a kilometre south of the Osiris temple stand the temples of king Ramesses II and that of his father Seti I (13th century BC).  Seti I’s temple is one of the largest and best preserved temples in the whole of Egypt. Its walls are adorned with some of the finest religious scenes, many depicting the king with various gods and goddesses.
+
+Almost 1.5 kilometres south of the temples of Ramesses II and Seti I are the town, temple and tomb built by King Senwosret III (19th century BC).  A little further on are the remains of another vast complex built by the later king called Ahmose (16th century BC), founder of the New Kingdom (16th century – 11th century BC).  This part of the site includes the last royal pyramid built in Egypt, as well as several temples and a vast underground tomb. 
+    </text>
+	</part>
+</report>
+</xml>
