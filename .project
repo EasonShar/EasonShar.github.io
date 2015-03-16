@@ -26,11 +26,4 @@
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/php/jquery-1.11.2.js</name>
-			<type>1</type>
-			<location>/Users/mengyaowang/Documents/EE/SexyDatabase-master/WebContent/php/jquery-1.11.2.js</location>
-		</link>
-	</linkedResources>
 </projectDescription>
