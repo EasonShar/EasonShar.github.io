@@ -73,7 +73,7 @@ if (isset ( $_POST ['submit'] )) {
 	<!--end of secondary tab-->
  <?php
 	if (! isset ( $groupAuthor2 ) or $groupAuthor2 == "")
-		die ( "error:This group has not uploaded report." );
+		die ( "<h3>&nbsp;&nbsp;&nbsp;&nbsp;This group has not uploaded report.</h3>" );
 	
 	$sql = "select * from grade where groupID='$groupAuthor2'";
 	$result = mysql_query ( $sql, $link );

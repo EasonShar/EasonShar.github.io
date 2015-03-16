@@ -60,7 +60,13 @@ $groupAllocated3 = mysql_result ( $rs4, 2 );
 	<!--end of tab-->
 
 	<div class="content">
-		<h2 style="margin-left: 30px;">You are allocated to Group <?php echo $groupID; ?>.</h2>
+		<h2 style="margin-left: 30px;">
+		<?php if($groupID == null){
+			echo "You have not been allocated to any Group.";
+		}else {
+			echo "Your are allocated to Group ";
+			echo $groupID;
+		}?></h2>
 		<div class="bs-example" data-example-id="collapse-accordion"
 			style="text-align: center;">
 			<div class="panel-group" id="accordion" role="tablist"

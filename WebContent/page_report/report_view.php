@@ -89,10 +89,31 @@ while ( $row = mysql_fetch_array ( $rs3 ) ) {
       
 	<div class="content">
 		<div class="panel panel-default report-container">
+			<div class="panel-body">
+				<div class="panel panel-default rank-mark-container">
+					<div class="panel-heading">
+						<h3 class="panel-title">Rank</h3>
+					</div>
+					<div class="panel-body">
+						<h4><?php echo $rank;?></h4>
+					</div>
+				</div>
+				<div class="panel panel-default rank-mark-container">
+					<div class="panel-heading">
+						<h3 class="panel-title">Total Mark</h3>
+					</div>
+					<div class="panel-body">
+						<h4><?php echo $totalMark;?></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default report-container">
 			<div class="panel-heading">
 				<h3 class="panel-title"> Title:
 				<?php echo $report_title;?></h3>
-				<h3 class="panel-title">Total Mark: <?php echo $totalMark;?>Rank: <?php echo $rank;?></h3>
 			</div>
 			<div class="panel-body">
 				<p> <?php echo $report_content;?></p>

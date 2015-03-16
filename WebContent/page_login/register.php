@@ -25,22 +25,18 @@ $sql = "insert into student (fullname,studentId,username,email,hometown,gender) 
 
 $sql2 = "insert into login (username,password)  values('$username','$password')";
 
+if (! mysql_query ( $sql2, $link )) {
+	
+	die ( 'Error: ' . mysql_error () );
+}
 if (! mysql_query ( $sql, $link )) 
 
 {
 	die ( 'Error: ' . mysql_error () );
 }
-echo "register successfully";
-
-if (! mysql_query ( $sql2, $link )) {
-	
-	die ( 'Error: ' . mysql_error () );
-}
-echo "register successfully";
-
 mysql_close ( $link );
 
-echo "<script> alert('register successfully');location.href='../index.php';exit;</script>";
+echo "<script> alert('Register successfully!');location.href='../index.php';exit;</script>";
 ?>
 
 </body>

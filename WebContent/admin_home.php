@@ -35,13 +35,14 @@ $(document).ready( function() {
 				  var studentId = $json.studentId;
 				  var email = $json.email;
 				  var gender = $json.gender;
-				  var hometown= $json.hometown;
+				  var hometown = $json.hometown;
+				  var group = $json.group;
 				  document.getElementById("fullNameText").innerHTML = "<small>Full Name</small>"+fullname;
-
 				  document.getElementById("studentIdText").innerHTML = "<small>Student ID</small>"+studentId;
 				  document.getElementById("emailText").innerHTML = "<small>Email</small>"+email;
 				  document.getElementById("genderText").innerHTML = "<small>Gender</small>"+gender;
 				  document.getElementById("hometownText").innerHTML = "<small>Hometown</small>"+hometown;
+				  document.getElementById("groupText").innerHTML = "<small>Group</small>"+group;
 				  $("#search-context").show();
 				  
 			   },
@@ -52,6 +53,13 @@ $(document).ready( function() {
 	
 });
 });
+</script>
+<script type="text/javascript">
+$(document).ready( function() {
+	$("#close-button").click(function(){
+		$("#search-context").hide();
+		});
+	});
 </script>
 </head>
 <body>
@@ -106,6 +114,10 @@ $(document).ready( function() {
 						<h3 id="emailText">
 							<small>Email</small>
 						</h3>
+						<h3 id="groupText">
+							<small>Group</small>
+						</h3>
+						<button id="close-button" class="btn btn-default close-button">Close</button>
 				
 				</div>
 				<!--end of edit window-->
@@ -134,8 +146,7 @@ $(document).ready( function() {
 
 						<tbody>
  <?php
-	
-include ("php/Connections/connect.php");
+	include ("php/Connections/connect.php");
 	$result = mysql_query ( "select*from student", $link );
 	$i = 1;
 	while ( $row = mysql_fetch_array ( $result ) ) {

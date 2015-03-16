@@ -17,7 +17,7 @@ $(document).ready(function(){
                    $('#passwordErr').html('Password is required');  
                }  
                else {  
-                   $('#passwordErr').html('password is ok');  
+                   $('#passwordErr').html('Password is ok');  
                }  
            });  
            $('#repassword').blur(function () {  

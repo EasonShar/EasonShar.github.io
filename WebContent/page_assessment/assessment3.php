@@ -19,7 +19,7 @@ if (isset ( $_POST ['submit'] )) {
 	$mark = $_POST [mark];
 	$comments = $_POST [comments];
 	if (! empty ( $array3 ['mark'] ) || ! empty ( $array3 ['comments'] )) {
-		echo "<script> alert('Your group has already submit assessment.');location.href='assessment3.php';exit;</script>";
+		echo "<script> alert('Your group has already submitted assessment.');location.href='assessment3.php';exit;</script>";
 	} else {
 		$submit = "update assessment set mark='$mark',comments='$comments' WHERE groupAllocated='$groupID' AND groupAuthor='$groupAuthor3'";
 		mysql_query ( $submit, $link );
@@ -77,7 +77,7 @@ if (isset ( $_POST ['submit'] )) {
 	 <?php
 		
 		if (! isset ( $groupAuthor3 ) or $groupAuthor3 == "")
-			die ( "error:This group has not upload report." );
+			die ( "<h3>&nbsp;&nbsp;&nbsp;&nbsp;This group has not uploaded report.</h3>" );
 		
 		$sql = "select * from grade where groupID='$groupAuthor3'";
 		$result = mysql_query ( $sql,$link );

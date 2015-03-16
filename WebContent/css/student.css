@@ -120,3 +120,30 @@
 	max-width: 40%;
 	top: 10px;
 }
+
+th, td {
+	text-align: center;
+}
+
+.rank-mark-container {
+	width: 50%;
+	float: left;
+	text-align: center;
+	margin-bottom: 3px;
+}
+
+.close-button {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	width: 15%;
+}
+
+a {
+	color: #57c69f;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #57c69f;
+	border-color: #fff;
+}

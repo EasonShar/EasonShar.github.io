@@ -47,8 +47,7 @@
 							<tr>
 								<th>Rank</th>
 								<th>Group</th>
-								<th>Totalmark</th>
-
+								<th>Average Mark</th>
 							</tr>
 						</thead>
 						<tbody>

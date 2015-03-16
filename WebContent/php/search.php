@@ -12,7 +12,8 @@ $list = array (
 		"studentId" => $row [studentID],
 		"email" => $row [email],
 		"gender" => $row [gender],
-		"hometown" => $row [hometown] 
+		"hometown" => $row [hometown],
+		"group" => $row [groupID],
 );
 echo json_encode ( $list );
 

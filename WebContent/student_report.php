@@ -72,11 +72,8 @@ $groupAllocated3 = mysql_result ( $rs2, 2 );
 				<h2>Please upload your group report.</h2>
 				<input type="hidden" name="Max_FILE_SIZE" value="1000000"> <input
 					type="file" name="file" id="exampleInputFile" Value="Choose file"
-					style="margin: 30px;">
-				<p style="margin-bottom: 30px;">more information</p>
-
-				<input type="submit" name="submit" value="Submit"
-					class="btn btn-default" style="margin-left: 30px;"></input>
+					style="margin: 30px;"> <input type="submit" name="submit"
+					value="Submit" class="btn btn-default" style="margin-left: 30px;"></input>
 				<div class="files"></div>
 
 			</div>
